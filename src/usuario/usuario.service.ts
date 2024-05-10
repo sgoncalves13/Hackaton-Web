@@ -30,7 +30,8 @@ export class UsuarioService {
         return this.findOne(id);
       }
     
-      async remove(id: string): Promise<void> {
+      async remove(id: string): Promise<String> {
         await this.usuariosRepository.delete(id);
+        return "Usuario " + id + " eliminado"
       }
 }

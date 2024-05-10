@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
 import { UsuarioService } from '../usuario/usuario.service';
 import { UsuarioDto } from '../usuario/usuario.dto';
 import { ApiTags } from '@nestjs/swagger';
@@ -13,7 +13,7 @@ export class UsuarioController {
     return this.usuariosService.create(createUserDto);
   }
 
-  @Get()
+  @Get('/all')
   findAll() {
     return this.usuariosService.findAll();
   }
@@ -23,7 +23,7 @@ export class UsuarioController {
     return this.usuariosService.findOne(id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UsuarioDto) {
     return this.usuariosService.update(id, updateUserDto);
   }

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
 import { ViajesService } from '../viajes/viajes.service';
 import { ViajeDto } from '../viajes/viajes.dto';
 import { ApiTags } from '@nestjs/swagger';
@@ -13,7 +13,7 @@ export class ViajeController {
     return this.viajesService.create(createViajeDto);
   }
 
-  @Get()
+  @Get('/all')
   findAll() {
     return this.viajesService.findAll();
   }
@@ -23,7 +23,7 @@ export class ViajeController {
     return this.viajesService.findOne(id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() updateUserDto: ViajeDto) {
     return this.viajesService.update(id, updateUserDto);
   }

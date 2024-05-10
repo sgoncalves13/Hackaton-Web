@@ -23,14 +23,12 @@ export class ViajeEntity {
     duracionHoras: number;
 
     @ManyToOne(() => UsuarioEntity, usuario => usuario.viajesComoConductor)
-    @JoinColumn({name: 'conductorId'})
     conductor: UsuarioEntity;
 
     @Column()
     conductorId: string;
 
     @ManyToOne(() => UsuarioEntity, usuario => usuario.viajesComoPasajero)
-    @JoinColumn({name: 'pasajeroId'})
     pasajero: UsuarioEntity;
 
     @Column()

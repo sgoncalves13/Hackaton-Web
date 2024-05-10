@@ -5,9 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsuarioEntity } from './usuario/usuario.entity';
 import { ViajeEntity } from './viajes/viajes.entity';
 import { PagosEntity } from './pagos/pagos.entity';
-import { UsuarioController } from './usuario/usuario.controller';
-import { ViajeController } from './viajes/viajes.controller';
 import { ViajesModule } from './viajes/viajes.module';
+import { PagosModule } from './pagos/pagos.module';
 
 @Module({
   imports:[ 
@@ -21,8 +20,7 @@ import { ViajesModule } from './viajes/viajes.module';
     entities: [UsuarioEntity, ViajeEntity, PagosEntity],
     synchronize: true,
   }),
-  TypeOrmModule.forFeature([UsuarioEntity, ViajeEntity, PagosEntity]),
-  UsuarioModule, ViajesModule],
+  UsuarioModule, ViajesModule, PagosModule],
   controllers: [],
   providers: [AppService],
 })
